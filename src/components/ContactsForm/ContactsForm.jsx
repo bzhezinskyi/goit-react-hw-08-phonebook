@@ -25,7 +25,7 @@ export default function ContactForm() {
     event.preventDefault();
 
     if (!contacts.find(contact => contact.name.includes(name))) {
-      toast.promise(dispatch(addContact({ name, phone: number })), {
+      toast.promise(dispatch(addContact({ name, number })), {
         pending: `Create a new contact ${name}`,
         success: `New contact ${name}`,
         error: `${name} not create`,
@@ -84,11 +84,7 @@ export default function ContactForm() {
             </FloatingLabel>
           </Col>
         </Row>
-        <Button
-          variant="primary"
-          type="submit"
-          disabled={contacts.length === 100}
-        >
+        <Button variant="dark" type="submit" disabled={contacts.length === 100}>
           Add contact
         </Button>
       </Form>

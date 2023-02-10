@@ -1,8 +1,8 @@
 import { Container } from 'react-bootstrap';
 
-import ContactForm from 'components/ContactForm/ContactForm';
-import ContactList from 'components/ContactList/ContactList';
-import Filter from 'components/Filter/Filter';
+import ContsctsFilter from 'components/ContsctsFilter/ContsctsFilter';
+import ContactForm from 'components/ContactsForm/ContactsForm';
+import ContactList from 'components/ContactsList/ContactList';
 
 const ContactsPage = () => {
   return (
@@ -11,7 +11,7 @@ const ContactsPage = () => {
       <ContactForm />
       <hr />
       <h2>Contacts</h2>
-      <Filter />
+      <ContsctsFilter />
       <ContactList />
     </Container>
   );

@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 
 import { deleteContact } from 'redux/contacts/contacts.operations';
 
-export default function ContactListItem({ name, phone, id }) {
+export default function ContactListItem({ name, number, id }) {
   const [deleting, setDeleting] = useState(false);
 
   const dispatch = useDispatch();
@@ -28,11 +28,11 @@ export default function ContactListItem({ name, phone, id }) {
         <b className="mb-0">{name}:</b>
       </td>
       <td className="text-start">
-        <p className="mb-0">{phone}</p>
+        <p className="mb-0">{number}</p>
       </td>
       <td className="text-end">
         <Button
-          variant="primary"
+          variant="dark"
           type="button"
           onClick={handleClick}
           disabled={deleting}

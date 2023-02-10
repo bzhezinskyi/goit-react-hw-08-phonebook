@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Container, Table } from 'react-bootstrap';
 
-import ContactListItem from 'components/ContactListItem/ContactListItem';
 import { fetchContacts } from 'redux/contacts/contacts.operations';
 import {
   selectContacts,
@@ -11,6 +10,7 @@ import {
   selectIsLoading,
   selectVisibleContacts,
 } from 'redux/contacts/contacts.selector';
+import ContactListItem from 'components/ContsctsListItem/ContsctsListItems';
 
 export default function ContactList() {
   const dispatch = useDispatch();

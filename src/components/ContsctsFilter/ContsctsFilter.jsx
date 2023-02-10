@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Container, Form } from 'react-bootstrap';
 
 import { selectFilter } from 'redux/filter/filter.selector';
-import { queryFilterValue } from 'redux/filter/filter.slise';
+import { queryFilterValue } from 'redux/filter/filter.slice';
 
-export default function Filter() {
+export default function ContactsFilter() {
   const filterValue = useSelector(selectFilter);
   const dispatch = useDispatch();
 

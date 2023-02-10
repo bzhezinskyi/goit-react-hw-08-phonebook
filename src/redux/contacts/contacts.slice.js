@@ -5,7 +5,6 @@ import {
   fetchContacts,
 } from './contacts.operations';
 
-
 const handlePending = state => {
   state.isLoading = true;
 };
