@@ -6,6 +6,7 @@ import { Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 
 import { deleteContact } from 'redux/contacts/contacts.operations';
+import { BsTrash } from 'react-icons/bs';
 
 export default function ContactListItem({ name, number, id }) {
   const [deleting, setDeleting] = useState(false);
@@ -37,7 +38,7 @@ export default function ContactListItem({ name, number, id }) {
           onClick={handleClick}
           disabled={deleting}
         >
-          {deleting ? 'Delete...' : 'Delete'}
+          <BsTrash />
         </Button>
       </td>
     </tr>

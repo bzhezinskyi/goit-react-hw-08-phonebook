@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
+import { Button, Container, Form, Nav } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { register } from 'redux/auth/auth.operation';
 
 const RegisterPage = () => {
@@ -74,13 +75,18 @@ const RegisterPage = () => {
             onChange={handleChange}
           />
         </Form.Group>
-
         <Button
+          className="mx-5"
           variant="dark"
           type="submit"
           disabled={name === '' || password === ''}
         >
           Submit
+        </Button>
+        <Button className="mx-5" variant="dark">
+          <Nav.Link as={NavLink} to="/login" className="py-0">
+            Already have an account? Login
+          </Nav.Link>
         </Button>
       </Form>
     </Container>

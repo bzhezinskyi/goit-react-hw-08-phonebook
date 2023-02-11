@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
+import { Button, Container, Form, Nav } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { logIn } from 'redux/auth/auth.operation';
 
 const LoginPage = () => {
@@ -60,8 +61,18 @@ const LoginPage = () => {
           />
         </Form.Group>
 
-        <Button variant="dark" type="submit" disabled={password === ''}>
+        <Button
+          className="mx-5"
+          variant="dark"
+          type="submit"
+          disabled={password === ''}
+        >
           Submit
+        </Button>
+        <Button className="mx-5" variant="dark">
+          <Nav.Link as={NavLink} to="/register">
+            Create your account
+          </Nav.Link>
         </Button>
       </Form>
     </Container>

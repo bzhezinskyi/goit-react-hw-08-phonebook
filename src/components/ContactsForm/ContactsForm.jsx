@@ -13,6 +13,7 @@ import {
 
 import { selectContacts } from 'redux/contacts/contacts.selector';
 import { addContact } from 'redux/contacts/contacts.operations';
+import { selectIsLoggedIn } from 'redux/auth/auth.selectors';
 
 export default function ContactForm() {
   const [name, setName] = useState('');
@@ -20,6 +21,7 @@ export default function ContactForm() {
 
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -84,7 +86,7 @@ export default function ContactForm() {
             </FloatingLabel>
           </Col>
         </Row>
-        <Button variant="dark" type="submit" disabled={contacts.length === 100}>
+        <Button variant="dark" type="submit" disabled={!isLoggedIn}>
           Add contact
         </Button>
       </Form>
