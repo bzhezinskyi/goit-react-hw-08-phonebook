@@ -1,4 +1,5 @@
 import ModalComponent from 'components/Modal/Modal';
+import { useAuth } from 'hooks/useAuth';
 import { useState } from 'react';
 import {
   Badge,
@@ -16,6 +17,8 @@ import { selectIsLoggedIn, selectUser } from 'redux/auth/auth.selectors';
 const Layout = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const { isRefreshing } = useAuth();
+
   const user = useSelector(selectUser);
 
   const [showModal, setShowModal] = useState(false);
@@ -39,9 +42,11 @@ const Layout = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link as={NavLink} to="contacts">
-                  Contacts
-                </Nav.Link>
+                {isLoggedIn && (
+                  <Nav.Link as={NavLink} to="contacts">
+                    Contacts
+                  </Nav.Link>
+                )}
               </Nav>
               <Nav>
                 {!isLoggedIn ? (
@@ -59,7 +64,7 @@ const Layout = () => {
         </Navbar>
       </header>
       <main>
-        <Outlet />
+        {!isRefreshing && <Outlet />}
         <Offcanvas
           placement="end"
           show={showOffcanvas}

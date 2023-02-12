@@ -60,9 +60,6 @@ const RegisterPage = () => {
             placeholder="Enter email"
             onChange={handleChange}
           />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -85,7 +82,7 @@ const RegisterPage = () => {
         </Button>
         <Button className="mx-5" variant="dark">
           <Nav.Link as={NavLink} to="/login" className="py-0">
-            Already have an account? Login
+            Already have an account?
           </Nav.Link>
         </Button>
       </Form>
