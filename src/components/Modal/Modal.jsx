@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import PropTypes from 'prop-types';
 
 const ModalComponent = ({
   handleConfirmation,
@@ -33,3 +34,11 @@ const ModalComponent = ({
 };
 
 export default ModalComponent;
+
+ModalComponent.propTypes = {
+  showModal: PropTypes.bool.isRequired,
+  handleCloseModal: PropTypes.func.isRequired,
+  modalTitle: PropTypes.string,
+  modalText: PropTypes.string,
+  handleConfirmation: PropTypes.func.isRequired,
+};
