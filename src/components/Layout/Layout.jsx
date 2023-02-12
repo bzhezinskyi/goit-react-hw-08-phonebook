@@ -1,14 +1,8 @@
 import ModalComponent from 'components/Modal/Modal';
+import UserMenu from 'components/UserMenu/UserMenu';
 import { useAuth } from 'hooks/useAuth';
 import { useState } from 'react';
-import {
-  Badge,
-  Button,
-  Container,
-  Nav,
-  Navbar,
-  Offcanvas,
-} from 'react-bootstrap';
+import { Badge, Container, Nav, Navbar } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Outlet } from 'react-router-dom';
 import { logOut } from 'redux/auth/auth.operation';
@@ -65,24 +59,18 @@ const Layout = () => {
       </header>
       <main>
         {!isRefreshing && <Outlet />}
-        <Offcanvas
-          placement="end"
-          show={showOffcanvas}
-          onHide={handleCloseOffcanvas}
-        >
-          <Offcanvas.Header closeButton>
-            <Offcanvas.Title>{user.name}</Offcanvas.Title>
-          </Offcanvas.Header>
-          <Offcanvas.Body>
-            <p>
+        <UserMenu
+          showOffcanvas={showOffcanvas}
+          handleCloseOffcanvas={handleCloseOffcanvas}
+          offcanvasTitle={user.name}
+          offcanvasBody={
+            <>
               <b>Email: </b>
               {user.email}
-            </p>
-            <Button variant="secondary" onClick={handleShowModal}>
-              Logout
-            </Button>
-          </Offcanvas.Body>
-        </Offcanvas>
+            </>
+          }
+          openModal={handleShowModal}
+        />
         <ModalComponent
           showModal={showModal}
           handleCloseModal={() => {
